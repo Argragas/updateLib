@@ -1,7 +1,7 @@
 name: yarn-upgrade-minor 
 
 on:
-schedule:
+  schedule:
   - cron: "5 * * * *" 
     
 jobs:
