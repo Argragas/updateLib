@@ -3,7 +3,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "36 20 1-31 * *" 
+  - cron: "45 20 1-31 * *" 
 
 jobs:
 
@@ -40,5 +40,6 @@ jobs:
           body: Build job of ${{github.repository}} completed successfully! \n < console.log
           # Optional unsigned/invalid certificates allowance:
           ignore_cert: true
+          attachments:  console.log
           # Optional priority: 'high', 'normal' (default) or 'low'
           priority: low
