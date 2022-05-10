@@ -14,5 +14,5 @@ jobs:
         with:
           node-version: 14
       - run: npm i yarn
-      - run: npm i yarn-upgrade-minor
+      - run: yarn
       - run: yarn yarn-upgrade-minor --non-interactive
