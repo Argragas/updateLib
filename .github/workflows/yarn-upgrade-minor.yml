@@ -2,7 +2,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "0 12 1-31 * *" 
+  - cron: "46 19 1-31 * *" 
 
 jobs:
   build:
@@ -13,5 +13,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-      - run: npm ci
-      - run: npm yarn-upgrade-minor
+      - run: npm i yarn
+      - run: npm i yarn-upgrade-minor
+      - run: npm yarn-upgrade-minor --non-interactive
