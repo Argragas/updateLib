@@ -3,7 +3,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "45 20 1-31 * *" 
+  - cron: "35 14 1-31 * *" 
 
 jobs:
 
@@ -12,12 +12,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
       - uses: actions/setup-node@v3
         with:
           node-version: 14
       - run: npm i yarn
       - run: yarn
       - run: yarn yarn-upgrade-minor --non-interactive > console.log
+      - name: Commit & Push changes
+      - uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.TOKEN_APP }}
+          empty: false
+          message: 'update lib via action'
       - uses: dawidd6/action-send-mail@v3
         with:
           # Required mail server address:
@@ -29,7 +38,7 @@ jobs:
           # Optional (recommended) mail server password:
           password: ${{secrets.MAIL_PASSWORD}}
           # Required mail subject:
-          subject: Github Actions job result
+          subject: ${{github.repository}} Github Actions job result
           # Required recipients' addresses:
           to: ${{secrets.MAIL_TO}}
           # Required sender full name (address can be skipped):
@@ -37,7 +46,7 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional plain body:
-          body: Build job of ${{github.repository}} completed successfully! \n < console.log
+          body: Build job of ${{github.repository}} completed successfully!
           # Optional unsigned/invalid certificates allowance:
           ignore_cert: true
           attachments:  console.log
