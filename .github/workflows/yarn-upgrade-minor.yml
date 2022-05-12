@@ -3,7 +3,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "37 19 1-31 * *" 
+  - cron: "51 19 1-31 * *" 
 
 jobs:
 
