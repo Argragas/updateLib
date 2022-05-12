@@ -3,7 +3,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "35 14 1-31 * *" 
+  - cron: "51 14 1-31 * *" 
 
 jobs:
 
@@ -21,7 +21,6 @@ jobs:
       - run: npm i yarn
       - run: yarn
       - run: yarn yarn-upgrade-minor --non-interactive > console.log
-      - name: Commit & Push changes
       - uses: actions-js/push@master
         with:
           github_token: ${{ secrets.TOKEN_APP }}
