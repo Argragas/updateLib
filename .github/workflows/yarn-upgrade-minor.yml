@@ -3,7 +3,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "51 14 1-31 * *" 
+  - cron: "37 19 1-31 * *" 
 
 jobs:
 
@@ -25,6 +25,7 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN_APP }}
           empty: false
+          branch: master
           message: 'update lib via action'
       - uses: dawidd6/action-send-mail@v3
         with:
