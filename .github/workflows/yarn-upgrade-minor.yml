@@ -3,7 +3,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "36 19 1-31 * *" 
+  - cron: "37 19 1-31 * *" 
 
 jobs:
 
@@ -23,8 +23,8 @@ jobs:
       - run: yarn yarn-upgrade-minor --non-interactive > console.log
       - name: setup python
         uses: actions/setup-python@v2
-            with:
-              python-version: 3.8 #install the python needed
+        with:
+          python-version: 3.8 #install the python needed
       - name: execute py script # run the run.py to get the latest data
         run: |
           python replace.py
