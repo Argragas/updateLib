@@ -3,7 +3,7 @@ name: yarn-upgrade-minor
 
 on:
   schedule:
-  - cron: "37 19 1-31 * *" 
+  - cron: "55 19 1-31 * *" 
 
 jobs:
 
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-      - run: npm i yarn
+      - run: npm i -g yarn
       - run: yarn
       - run: yarn yarn-upgrade-minor --non-interactive > console.log
       - name: setup python
