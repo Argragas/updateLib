@@ -17,7 +17,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: actions/js-check-update-action@v1
+      - uses: Argragas/js-check-update-action@v1
         with:
           TOKEN_APP:  ${{ secrets.TOKEN_APP }}
           MAIL_USERNAME:  ${{secrets.MAIL_USERNAME}}
