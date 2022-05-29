@@ -2,8 +2,7 @@ name: yarn-upgrade-minor
 
 
 on:
-  schedule:
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
 
