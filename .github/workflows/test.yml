@@ -17,9 +17,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - run: echo 'TOKEN=${{ secrets.TOKEN_APP }}' >> $GITHUB_ENV
+      - run: echo 'MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}' >> $GITHUB_ENV
+      - run: echo 'MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}' >> $GITHUB_ENV
+      - run: echo 'MAIL_TO=${{ secrets.MAIL_TO }}' >> $GITHUB_ENV
       - uses: Argragas/js-check-update-action@v1.1
         with:
-          TOKEN_APP:  ${{ secrets.TOKEN_APP }}
-          MAIL_USERNAME:  ${{secrets.MAIL_USERNAME}}
-          MAIL_PASSWORD:  ${{secrets.MAIL_PASSWORD}}
-          MAIL_TO: ${{secrets.MAIL_TO}}
+          TOKEN_APP:  ${{ env.TOKEN }}
+          MAIL_USERNAME:  ${{ env.MAIL_USERNAME }}
+          MAIL_PASSWORD:  ${{ env.MAIL_PASSWORD }}
+          MAIL_TO:  ${{ env.MAIL_TO }}
