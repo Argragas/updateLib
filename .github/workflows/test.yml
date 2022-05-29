@@ -21,7 +21,7 @@ jobs:
       - run: echo 'MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}' >> $GITHUB_ENV
       - run: echo 'MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}' >> $GITHUB_ENV
       - run: echo 'MAIL_TO=${{ secrets.MAIL_TO }}' >> $GITHUB_ENV
-      - uses: Argragas/js-check-update-action@v1.5
+      - uses: Argragas/js-check-update-action@v1.6
         with:
           TOKEN_APP:  ${{ env.TOKEN }}
           MAIL_USERNAME:  ${{ env.MAIL_USERNAME }}
